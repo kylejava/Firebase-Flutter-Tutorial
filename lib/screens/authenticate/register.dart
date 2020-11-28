@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:newfirebasetut/services/auth.dart';
-
-class SignIn extends StatefulWidget {
+class Register extends StatefulWidget {
   @override
-  _SignInState createState() => _SignInState();
+  _RegisterState createState() => _RegisterState();
 }
 
-class _SignInState extends State<SignIn> {
+class _RegisterState extends State<Register> {
+  final AuthService _auth  = AuthService();
+  // Text field states
+  String email = '';
+  String password = '';
   @override
   Widget build(BuildContext context) {
-
-    final AuthService _auth  = AuthService();
-    // Text field states
-    String email = '';
-    String password = '';
-    return Scaffold(
+    return  Scaffold(
       backgroundColor: Colors.brown[100],
       appBar: AppBar(
         backgroundColor: Colors.brown[400],
         elevation: 0.0,
-        title: Text("Sign in to Brew Crew"),
+        title: Text("Sign up to Brew Crew"),
       ),
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
@@ -37,20 +35,20 @@ class _SignInState extends State<SignIn> {
               TextFormField(
                 obscureText: true,
                 onChanged: (val){
-                    setState(() => password = val);
+                  setState(() => password = val);
                 },
               ),
               SizedBox(height: 20.0,),
               RaisedButton(
                 color: Colors.pink[400],
-                  child: Text(
-                    'Sign In',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onPressed: () async{
-                    print(email);
-                    print(password);
-                  },
+                child: Text(
+                  'Register',
+                  style: TextStyle(color: Colors.white),
+                ),
+                onPressed: () async{
+                  print(email);
+                  print(password);
+                },
               )
             ],
           ),
